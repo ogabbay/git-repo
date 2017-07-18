@@ -1485,7 +1485,7 @@ class Project(object):
       syncbuf.later2(self, _dorebase)
     elif local_changes:
       try:
-        self._ResetHard(branch.merge)
+        self._ResetHard(revid)
         self._CopyAndLinkFiles()
       except GitError as e:
         syncbuf.fail(self, e)
