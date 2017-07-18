@@ -12,3 +12,16 @@ that you can put anywhere in your path.
 * Overview: https://source.android.com/source/developing.html
 * Docs: https://source.android.com/source/using-repo.html
 * [Submitting patches](./SUBMITTING_PATCHES.md)
+
+# topic branches modification
+
+The modification is that if you are working on a topic branch and you do "repo sync", you will get the following message:
+
+"[repo name]: You are working on topic branch [branch name] while manifest points to [...], so skipping rebase"
+
+To use this tool, do:
+
+* curl https://raw.githubusercontent.com/gabbayo/git-repo/topic_branches/repo > /usr/bin/repo
+* chmod a+x /usr/bin/repo
+
+After that, you will need to do a clean "repo init" to use the new tool
