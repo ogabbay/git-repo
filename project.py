@@ -1488,6 +1488,19 @@ class Project(object):
       syncbuf.fail(self, _DirtyError())
       return
 
+    # If we are working on local branch that is not the manifest branch,
+    # just exit
+    manifest_head_name = self.revisionExpr
+    if not self.revisionExpr.startswith('refs/'):
+      manifest_head_name = R_HEADS + self.revisionExpr
+    if branch.merge != manifest_head_name:
+      if branch.merge:
+        syncbuf.info(self,
+                     'You are working on topic branch %s while manifest points to %s, so skipping rebase',
+                     branch.merge,
+                     self.revisionExpr)
+        return
+
     # If the upstream switched on us, warn the user.
     #
     if branch.merge != self.revisionExpr:
