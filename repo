@@ -26,7 +26,7 @@ REPO_REV = 'topic_branches'
 VERSION = (1, 23)
 
 # increment this if the MAINTAINER_KEYS block is modified
-KEYRING_VERSION = (1, 2)
+KEYRING_VERSION = (1, 3)
 
 # Each individual key entry is created by using:
 # gpg --armor --export keyid
